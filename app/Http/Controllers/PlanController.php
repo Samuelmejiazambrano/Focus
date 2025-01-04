@@ -63,4 +63,16 @@ class PlanController extends Controller
 
         return redirect()->route('plan.index_plan')->with('success', 'Plan registrado con éxito.');
     }
+    public function delete(Request $request)
+    {
+        $plan = Plan::find((int) $request->plan);
+
+        if ($plan) {
+            $plan->delete();
+            return redirect()->route('plan.index_plan')->with('success', 'Plan eliminado exitosamente.');
+        }
+
+        return redirect()->route('plan.index_plan')->with('error', 'Plan no encontrado.');
+    }
+
 }

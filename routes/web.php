@@ -70,6 +70,7 @@ Route::middleware(['auth'])->group(function () {
 
         Route::put('plan/update-plan', [PlanController::class, 'update'])->name('plan.update_plan');
 
-       
+        Route::delete('/plan/{plan}', [PlanController::class, 'delete'])->name('plan.delete');
+
         
 });

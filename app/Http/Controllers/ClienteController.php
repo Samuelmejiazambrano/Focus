@@ -98,7 +98,8 @@ class ClienteController extends Controller
         $Cliente = new Cliente();
         $horario = Horario::all();
         $plan = Plan::all();
-        $cliente = Cliente::find((int) $request->clientes);
+        $cliente = Cliente::with('horarios')->find((int) $request->clientes);
+
         return view('cliente.update', [
             'cliente' => $cliente,
             'horario' => $horario,

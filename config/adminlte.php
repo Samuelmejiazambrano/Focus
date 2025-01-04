@@ -63,9 +63,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo' => '<b>Focus</b>',
+    'logo_img' => '/img/focus.png',
+    // 'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'Admin Logo',
@@ -257,7 +257,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'cliente/index-cliente',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -336,17 +336,17 @@ return [
             [
                 'text' => 'Lista de Clientes',
                 'url' => 'cliente/index-cliente',
-                'icon' => 'fas fa-fw fa-users',
+                'icon' => 'fas fa-fw fa-list', // List icon
             ],
             [
                 'text' => 'Lista de Planes',
                 'url' => 'plan/index-plan',
-                'icon' => 'fas fa-fw fa-users',
+                'icon' => 'fas fa-fw fa-th-list', // Th list icon
             ],
-            // P
             // Puedes agregar más opciones relacionadas con clientes aquí
         ],
     ],
+    
     [
         'text' => 'Blog',
         'url' => 'admin/blog',

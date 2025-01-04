@@ -48,13 +48,12 @@
                                     </a>
                                 </td>
                                 <td class="text-center">
-                                    <form action="" method="POST" style="display:inline;">
+                                    <form action="{{ route('plan.delete', $planes->id) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este plan?');">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
+                                        <button type="submit" class="btn btn-danger">Eliminar</button>
                                     </form>
+                                    
                                 </td>
                             </tr>
                         @endforeach
