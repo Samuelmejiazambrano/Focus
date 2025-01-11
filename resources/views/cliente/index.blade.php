@@ -6,6 +6,45 @@
     <h1>Listado de Clientes</h1>
 @stop
 
+@section('css')
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+
+    <link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-s5vD7lwB0nHDuVweBBjKvFZyCVik4kW+OzWn1lI9Qq2ULjoRrAExE/xq7zWCGzF/" crossorigin="anonymous">
+    <style>
+        .pago {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        th input {
+            width: 90px;
+            min-width: 80px;
+            max-width: 120px;
+        }
+
+        .search-input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            outline: none;
+        }
+    </style>
+@stop
+
+
 @section('content')
     <div class="container_mantenimiento mt-5">
         <div class="row">
@@ -89,67 +128,7 @@
                                         <i class="fas fa-edit"></i>
                                     </a>
                                 </td>
-                                {{-- <td class="text-center">
-                                    <a class="btn btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#clienteModal{{ $clientes->id }}">
-                                        <i class="bi bi-activity"></i>
-                                    </a>
 
-                                    <div class="modal fade" id="clienteModal{{ $clientes->id }}" tabindex="-1"
-                                        aria-labelledby="modalLabel{{ $clientes->id }}" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="modalLabel{{ $clientes->id }}">Seguimiento
-                                                        para Cliente {{ $clientes->nombres_apellidos }}</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form
-                                                        action="{{ route('cliente.store_seguimiento', ['id' => $clientes->id]) }}"
-                                                        method="POST" id="seguimientoForm{{ $clientes->id }}">
-
-                                                        @csrf
-
-                                                        <!-- Campo oculto para cliente_id -->
-                                                        <input type="hidden" name="cliente_id"
-                                                            value="{{ $clientes->id }}">
-
-                                                        <div class="mb-3">
-                                                            <label for="peso" class="form-label">Peso (kg)</label>
-                                                            <input type="number" name="peso" class="form-control"
-                                                                id="peso{{ $clientes->id }}" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="altura" class="form-label">Altura (cm)</label>
-                                                            <input type="number" name="altura" class="form-control"
-                                                                id="altura{{ $clientes->id }}" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="imc" class="form-label">IMC</label>
-                                                            <input type="text" name="imc" class="form-control"
-                                                                id="imc{{ $clientes->id }}" readonly>
-                                                        </div>
-                                                        <button type="button" class="btn btn-primary"
-                                                            onclick="calcularIMC('{{ $clientes->id }}')">Calcular
-                                                            IMC</button>
-                                                        <button type="submit" class="btn btn-success">Guardar
-                                                            Seguimiento</button>
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Cerrar</button>
-
-                                                    </form>
-                                                </div>
-
-
-                                                </form>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </td> --}}
                                 <td class="text-center">
                                     <a class="btn" style="background-color: red" data-bs-toggle="modal"
                                         data-bs-target="#pagoModal{{ $clientes->id }}">
@@ -319,38 +298,6 @@
 
 
 
-@section('css')
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
-
-    <link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
-    <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        integrity="sha384-s5vD7lwB0nHDuVweBBjKvFZyCVik4kW+OzWn1lI9Qq2ULjoRrAExE/xq7zWCGzF/" crossorigin="anonymous">
-    <style>
-        .pago {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-
-        .search-input:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-            outline: none;
-        }
-    </style>
-@stop
 
 @section('js')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -407,7 +354,6 @@
                 $(this).html('<input type="text" placeholder="Buscar ' + title + '" />');
             });
 
-            // Aplicar el filtro en cada columna en el pie de página (tfoot)
             $('#cliente_table tfoot input').on('keyup change', function() {
                 table
                     .column($(this).parent().index() + ':visible')
