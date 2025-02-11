@@ -56,6 +56,14 @@ class ClienteController extends Controller
         $cliente->direccion = $request->input('direccion');
         $cliente->horario = $request->input('horario');
         $cliente->fecha_nacimiento = $request->input('fecha_nacimiento');
+        $cliente->tipo_sangre = $request->input('tipo_sangre');
+        $cliente->prestador_servicios_salud = $request->input('prestador_servicios_salud');
+        $cliente->alergico_medicamento_sustancia = $request->input('alergico_medicamento_sustancia');
+        $cliente->observaciones = $request->input('observaciones');
+
+
+
+
         // $cliente->fecha_inicio = $request->input('fecha_inicio');
 
         // $cliente->plan = $request->input('plan');
@@ -122,6 +130,10 @@ class ClienteController extends Controller
         $cliente->horario = $request->input('horario');
         $cliente->fecha_nacimiento = $request->input('fecha_nacimiento');
         $cliente->estado = $request->input('estado');
+        $cliente->tipo_sangre = $request->input('tipo_sangre');
+        $cliente->prestador_servicios_salud = $request->input('prestador_servicios_salud');
+        $cliente->alergico_medicamento_sustancia = $request->input('alergico_medicamento_sustancia');
+        $cliente->observaciones = $request->input('observaciones');
         $cliente->save();
 
         return redirect()->route('cliente.index_cliente')->with('success', 'Plan actualizado exitosamente');
